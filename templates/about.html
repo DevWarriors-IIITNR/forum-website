@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block title %}About {% endblock title %}
+{% block aboutActive %}active{% endblock aboutActive %}
+{% load static %}
+
+{% block content %}
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">About Us</h1>
+        <p class="lead text-body-secondary">We're a passionate team of developers, bringing fresh perspectives to the world of digital solutions. With a keen eye for detail and a drive for innovation, we strive to deliver exceptional products that exceed expectations.</p>
+      </div>
+    </div>
+  </section>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img img-fluid card-img-top" width="100%" height="auto" src="{% static 'images/me.jpeg' %}" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="auto" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+              <h3>Animesh Pathak</h3>
+              <h5 class="opacity-75">Team Lead, Full-Stack</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="auto" src="{% static 'images/placeholder.jpeg' %}" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="auto" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+              <h3>Shreya Dubey</h3>
+              <h5 class="opacity-75">Team Member, Front-End</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="auto" src="{% static 'images/placeholder.jpeg' %}" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="auto" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+              <h3>Pulkit Shrivastava</h3>
+              <h5 class="opacity-75">Team Member, Back-End & DB</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="auto" src="{% static 'images/placeholder.jpeg' %}" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="auto" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+              <h3>Rishika Kherniwal</h3>
+              <h5 class="opacity-75">Team Member, Design & Documentation</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="auto" src="{% static 'images/placeholder.jpeg' %}" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="auto" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+              <h3>Sparrsh Sanghi</h3>
+              <h5 class="opacity-75">Team Memeber, Testing & QA</h5>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}

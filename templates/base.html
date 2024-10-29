@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="{% static 'images/logo.png' %}" />
+    <title>{% block title %}{% endblock title %} | IIITNR Forum</title>
+    <link
+      href="{% static 'vendor/bootstrap/bootstrap.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'vendor/bootstrap/bootstrap-icons.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
+    <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}" defer></script>
+    <script src="{% static 'vendor/popper.min.js' %}" defer></script>
+    <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}" defer></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-fixed-top navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid ">
+          <a class="navbar-brand fs-1" style="color: #217591;" href="/">
+            <img src="{% static 'images/logo.png' %}" width="80" height="80" class="d-inline-block align-text-middle" />
+            IIITNR forum
+          </a>
+          
+          
+        </div>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 px-3 mb-lg-0">
+        <li class="nav-item px-3">
+              <a class="nav-link {% block homeActive %}{% endblock homeActive %}" aria-current="page" href="/">HOME</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link {% block aboutActive %}{% endblock aboutActive %}" href="/about/">ABOUT</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link" href="/admin/">ADMIN</a>
+        </li>
+        
+      </ul>
+                     
+      </nav>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <footer class="navbar py-5" style="background-color: #217591; color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Forum - IIIT Naya Raipur</h2>
+                </div>
+                <div class="col-md-3">
+                    <h5>About Us</h5>
+                    <p>IIITNR Forum is a dedicated platform for students at the International Institute of Information Technology, Naya Raipur. We provide a space for students to connect, access academic information, and stay updated with college events and activities</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: forum@iiitnr.edu.in</li>
+                        <li>Phone: +91 1234567890</li>
+                        <li>Address: IIIT, Near Purkhoti Muktangan</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                          <a href="#">
+                                <i class="fab fa-facebook"></i>
+                          </a>
+                          </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                                <i class="fab fa-twitter"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                                <i class="fab fa-instagram"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                                <i class="fab fa-linkedin"></i>
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            
+        </div>
+    </footer>
+  </body>
+</html>
