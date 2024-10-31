@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html data-bs-theme="light" lang="en">
+<html data-bs-theme="forum-light" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,8 +13,6 @@
     />
     <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
     <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}" defer></script>
-    <script src="{% static 'vendor/popper.min.js' %}" defer></script>
-    <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}" defer></script>
     <link
       href="{% static 'vendor/fontawesome/css/fontawesome.css' %}"
       rel="stylesheet"
@@ -68,13 +66,13 @@
 
                      
       </nav>
-          <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
+          <hr class="bg-secondary m-0 border-top border-secondary" />
       {% if user.is_authenticated %}
-      <div class=" container-fluid align-middle mb-3 text-end">Welcome, {{user.username}} <a class="btn btn-danger mx-2" href="/logout">Log out <i class="fa fa-arrow-right-from-bracket"></i></a></div>
+      <div class=" container-fluid align-middle my-3 text-end">Welcome, <strong>{{user.username}}</strong> <a class="btn btn-danger mx-2" href="/logout">Log out <i class="fa fa-arrow-right-from-bracket"></i></a></div>
       {% else %}
-        <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a class="btn btn-primary mx-2" href="/admin">Log in <i class="fa fa-arrow-right-to-bracket"></i></a></div>
+        <div class=" container-fluid align-middle my-3 text-end">You are not logged in. <a class="btn btn-primary mx-2" href="/admin">Log in <i class="fa fa-arrow-right-to-bracket"></i></a></div>
       {% endif %}
-          <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
+          <hr class="bg-secondary m-0 border-top border-secondary" />
     </div>
     {% block content %}
     {% endblock content %}
