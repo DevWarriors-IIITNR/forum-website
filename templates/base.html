@@ -69,7 +69,11 @@
                      
       </nav>
           <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
-      <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a href="">Log in.</a></div>
+      {% if user.is_authenticated %}
+      <div class=" container-fluid align-middle mb-3 text-end">Welcome, {{user.username}} <a href="/logout">Logout</a></div>
+      {% else %}
+        <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a href="">Log in.</a></div>
+      {% endif %}
     </div>
     {% block content %}
     {% endblock content %}
