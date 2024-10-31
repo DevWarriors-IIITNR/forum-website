@@ -47,13 +47,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 px-3 mb-lg-0">
-        <li class="nav-item d-flex flex-row justify-content-center align-items-center px-3">
+        <!-- <li class="nav-item d-flex flex-row justify-content-center align-items-center px-3">
           <i class="fa-solid fa-sun mx-2"></i>
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="color-mode-switch" role="switch">
           </div>
           <i class="fa-solid fa-moon mx-2"></i>
-        </li>
+        </li>-->
         <li class="nav-item d-flex flex-row justify-content-center px-3">
               <a class="nav-link {% block homeActive %}{% endblock homeActive %}" aria-current="page" href="/">HOME</a>
         </li>
@@ -70,10 +70,11 @@
       </nav>
           <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
       {% if user.is_authenticated %}
-      <div class=" container-fluid align-middle mb-3 text-end">Welcome, {{user.username}} <a href="/logout">Logout</a></div>
+      <div class=" container-fluid align-middle mb-3 text-end">Welcome, {{user.username}} <a class="btn btn-danger mx-2" href="/logout">Log out <i class="fa fa-arrow-right-from-bracket"></i></a></div>
       {% else %}
-        <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a href="">Log in.</a></div>
+        <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a class="btn btn-primary mx-2" href="/admin">Log in <i class="fa fa-arrow-right-to-bracket"></i></a></div>
       {% endif %}
+          <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
     </div>
     {% block content %}
     {% endblock content %}
