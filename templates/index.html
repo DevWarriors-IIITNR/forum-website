@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load socialaccount %}
 {% block title %}Home{% endblock title %}
 {% block homeActive %}active{% endblock homeActive %}
 
@@ -8,12 +9,13 @@
   <img class="img-fluid col-sm-7 px-0 mx-0" src="{% static 'images/backdrop.jpeg' %}"/>
   <div class="col container-fluid d-flex flex-column justify-content-center align-items-center align-text-center p-5" style="background-color: #f27516;">
     <h1 class="text-light align-middle">Join the forum today!</h1>
-    <div class="text-bg-light align-middle text-center rounded-pill">
-      <a class="btn btn-lg btn-google btn-block btn-outline text-center align-middle" href="#">
+    <form action="{% provider_login_url 'google' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-google btn-block btn-outline text-bg-light align-middle text-center rounded-pill">
         <img class="d-inline-block align-text-middle" height="20" weight="20" src="{% static 'images/google.png' %}">
         <span>Sign in with Google</span> 
-      </a>
-    </div>
+      </button>
+    </form>
   </div>
 </div>
 {% endblock content %}
