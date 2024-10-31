@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  New Post
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid mb-3">
+  <h1 class="mb-3 text-center"> Create a new post</h1>
+
+
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title for the post">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Post Body</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Contents of your post..."></textarea>
+  </div>
+  <button type="button" class="btn btn-primary mt-1 mb-5">Submit</button>
+</div>
+{% endblock content %}

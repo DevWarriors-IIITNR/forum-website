@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html data-bs-theme="light" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,21 +11,31 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link
-      href="{% static 'vendor/bootstrap/bootstrap-icons.min.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
     <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
     <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}" defer></script>
     <script src="{% static 'vendor/popper.min.js' %}" defer></script>
     <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}" defer></script>
+    <link
+      href="{% static 'vendor/fontawesome/css/fontawesome.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'vendor/fontawesome/css/brands.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'vendor/fontawesome/css/solid.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-fixed-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid p-0" >
+      <nav style="/*background-color: #f8f8f5; color: #151515;*/" class="navbar p-2 navbar-fixed-top navbar-expand-lg ">
         <div class="container-fluid ">
-          <a class="navbar-brand fs-1" style="color: #217591;" href="/">
+          <a class="navbar-brand fs-1" style="/*color: #217591;*/" href="/">
             <img src="{% static 'images/logo.png' %}" width="80" height="80" class="d-inline-block align-text-middle" />
             IIITNR forum
           </a>
@@ -37,19 +47,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 px-3 mb-lg-0">
-        <li class="nav-item px-3">
+        <li class="nav-item d-flex flex-row justify-content-center align-items-center px-3">
+          <i class="fa-solid fa-sun mx-2"></i>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="color-mode-switch" role="switch">
+          </div>
+          <i class="fa-solid fa-moon mx-2"></i>
+        </li>
+        <li class="nav-item d-flex flex-row justify-content-center px-3">
               <a class="nav-link {% block homeActive %}{% endblock homeActive %}" aria-current="page" href="/">HOME</a>
         </li>
-        <li class="nav-item px-3">
+        <li class="nav-item d-flex flex-row justify-content-center px-3">
           <a class="nav-link {% block aboutActive %}{% endblock aboutActive %}" href="/about/">ABOUT</a>
         </li>
-        <li class="nav-item px-3">
+        <li class="nav-item d-flex flex-row justify-content-center px-3">
           <a class="nav-link" href="/admin/">ADMIN</a>
         </li>
         
       </ul>
+
                      
       </nav>
+          <hr class="bg-secondary border-2 mt-0 border-top border-secondary" />
+      <div class=" container-fluid align-middle mb-3 text-end">You are not logged in. <a href="">Log in.</a></div>
     </div>
     {% block content %}
     {% endblock content %}
@@ -76,28 +96,27 @@
                     <ul class="list-inline footer-links">
                         <li class="list-inline-item">
                           <a href="#">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-facebook" style="color: #113355;"></i>
                           </a>
                           </li>
                         <li class="list-inline-item">
                           <a href="#">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-x-twitter" style="color: #1b1c1e;"></i>
                           </a>
                         </li>
                         <li class="list-inline-item">
                           <a href="#">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-github" style= "color: #fafafa;"></i>
                           </a>
                         </li>
                         <li class="list-inline-item">
                           <a href="#">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-linkedin" style= "color: #f8f8f5;"></i>
                           </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <hr>
             
         </div>
     </footer>

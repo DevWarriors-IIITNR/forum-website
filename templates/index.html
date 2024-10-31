@@ -8,9 +8,12 @@
   <img class="img-fluid col-sm-7 px-0 mx-0" src="{% static 'images/backdrop.jpeg' %}"/>
   <div class="col container-fluid d-flex flex-column justify-content-center align-items-center align-text-center p-5" style="background-color: #f27516;">
     <h1 class="text-light align-middle">Join the forum today!</h1>
-        <div class="text-bg-light align-middle text-center rounded-pill">
-        <a class="btn btn-lg btn-google btn-block btn-outline text-center align-middle" href="#"><img class="d-inline-block align-text-middle" height="20" weight="20" src="{% static 'images/google.png' %}"> Sign in with Google </a>
-        </div>
+    <div class="text-bg-light align-middle text-center rounded-pill">
+      <a class="btn btn-lg btn-google btn-block btn-outline text-center align-middle" href="#">
+        <img class="d-inline-block align-text-middle" height="20" weight="20" src="{% static 'images/google.png' %}">
+        <span>Sign in with Google</span> 
+      </a>
+    </div>
   </div>
 </div>
 {% endblock content %}

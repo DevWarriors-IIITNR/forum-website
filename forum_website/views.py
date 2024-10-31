@@ -7,3 +7,11 @@ def home(request):
 
 def about(request):
     return render(request, "about.html")
+
+
+def test(request):
+    return render(request, "test.html")
+
+
+def newpost(request):
+    return render(request, "newpost.html")
