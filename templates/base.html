@@ -59,9 +59,11 @@
         <li class="nav-item d-flex flex-row justify-content-center px-3">
           <a class="nav-link {% block aboutActive %}{% endblock aboutActive %}" href="/about/">ABOUT</a>
         </li>
+        {% if user.is_staff %}
         <li class="nav-item d-flex flex-row justify-content-center px-3">
           <a class="nav-link" href="/admin/">ADMIN</a>
         </li>
+        {% endif %}
         
       </ul>
 
