@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 def home(request):
+    if request.user.is_authenticated:
+        return render(request, "test.html")
     return render(request, "index.html")
 
 
@@ -9,9 +11,11 @@ def about(request):
     return render(request, "about.html")
 
 
-def test(request):
-    return render(request, "test.html")
-
-
 def newpost(request):
-    return render(request, "newpost.html")
+    if request.user.is_authenticated:
+        return render(request, "newpost.html")
+    return redirect(pleasesignin)
+
+
+def pleasesignin(request):
+    return render(request, "pleasesignin.html")
