@@ -59,6 +59,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Disallow Regular login
 SOCIALACCOUNT_ONLY = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
