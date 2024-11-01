@@ -1,12 +1,14 @@
 from datetime import datetime
 from django.shortcuts import HttpResponse, redirect, render
 from django.contrib.auth import logout
-from .models import PostForm, CommentForm
+from .models import Post, Comment, PostForm, CommentForm
 
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, "test.html")
+        posts = Post.objects.all()
+        args = {"posts": posts}
+        return render(request, "test.html", args)
     return render(request, "index.html")
 
 
