@@ -2,6 +2,7 @@ from datetime import datetime
 from django.shortcuts import HttpResponse, redirect, render
 from django.contrib.auth import logout
 from .models import Post, Comment, PostForm, CommentForm
+from allauth.socialaccount.models import SocialAccount
 
 
 def home(request):
