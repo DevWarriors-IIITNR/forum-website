@@ -11,6 +11,9 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
 
+    def __str__(self):
+        return str(self.title) + " by " + str(self.user) + " on " + str(self.created_at)
+
 
 class Comment(models.Model):
     body = models.TextField()
@@ -18,8 +21,25 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
 
+    def __str__(self):
+        return (
+            str(self.post)
+            + " by "
+            + str(self.body)[:10]
+            + "-"
+            + str(self.user)
+            + " on "
+            + str(self.created_at)
+        )
+
 
 class PostForm(ModelForm):
     class Meta:
         model = Post
         fields = ["title", "body"]
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["body"]
