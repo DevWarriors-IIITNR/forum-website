@@ -41,3 +41,26 @@ def pleasesignin(request):
 def logout_view(request):
     logout(request)
     return redirect("/")
+
+
+def viewpost(request, pk):
+    if request.user.is_authenticated:
+        form = CommentForm(request.POST)
+        post = Post.objects.get(pk=pk)
+        comments = Comment.objects.filter(post=post)
+        if request.method == "POST":
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.user = request.user
+                comment.post = Post.objects.get(pk=pk)
+                comment.save()
+                return redirect("/viewpost/" + str(pk))
+        else:
+            form = CommentForm()
+        return render(
+            request,
+            "viewpost.html",
+            {"form": form, "comments": comments, "post": Post.objects.get(pk=pk)},
+        )
+    else:
+        return redirect(pleasesignin)

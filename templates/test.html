@@ -24,7 +24,7 @@
   {% for post in posts %}
     <div class="card my-2" style="background-color:#f8f8f5; color:#151515;">
       <div class="card-body">
-      <h5 class="card-title p-2 m-2">{{ post.title }}</h5>
+      <a class="link-body-emphasis" href="{% url 'viewpost' post.pk %}"><h5 class="card-title p-2 m-2">{{ post.title }}</h5></a>
       <p class="card-text p-2 m-2 text-wrap text-truncate" style="max-height: 3rem;">{{ post.body }}</p>
         <div class="d-flex p-2 m-2 justify-content-start align-items-center">
         <div class="badge align-self-middle text-wrap text-start me-auto text-secondary">By @{{ post.user }} <img src="{{ post.user.profile.picture }}" class="rounded-circle" height="15" width="15"></div>

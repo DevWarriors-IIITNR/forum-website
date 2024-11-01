@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
+from django.forms.fields import Textarea
 from django.utils.translation.trans_real import receiver
 from allauth.account.signals import user_signed_up
 from allauth.socialaccount.models import SocialAccount
@@ -61,9 +62,36 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         fields = ["title", "body"]
+        widgets = {
+            "title": TextInput(
+                attrs={
+                    "rows": 1,
+                    "class": "mb-3 form-control",
+                    "placeholder": "Your title here...",
+                }
+            ),
+            "body": Textarea(
+                attrs={
+                    "rows": 7,
+                    "class": "mb-3 form-control",
+                    "placeholder": "Your body here...",
+                }
+            ),
+        }
 
 
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ["body"]
+        labels = {"body": "Add a comment"}
+        widgets = {
+            "body": Textarea(
+                attrs={
+                    "rows": 4,
+                    "cols": "auto",
+                    "class": "mb-3 form-control",
+                    "placeholder": "Your comment here...",
+                }
+            )
+        }
