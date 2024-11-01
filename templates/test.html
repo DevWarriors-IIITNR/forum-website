@@ -27,7 +27,7 @@
       <h5 class="card-title p-2 m-2">{{ post.title }}</h5>
       <p class="card-text p-2 m-2 text-wrap text-truncate" style="max-height: 3rem;">{{ post.body }}</p>
         <div class="d-flex p-2 m-2 justify-content-start align-items-center">
-          <div class="badge align-self-middle text-wrap text-start me-auto text-secondary">By @{{ post.user }}</div>
+        <div class="badge align-self-middle text-wrap text-start me-auto text-secondary">By @{{ post.user }} <img src="{{ post.user.profile.picture }}" class="rounded-circle" height="15" width="15"></div>
           <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on {{ post.created_at }}</div>
         </div>
 
