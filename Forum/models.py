@@ -5,6 +5,12 @@ from django.forms import ModelForm
 # Create your models here.
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    picture = models.URLField()
+    is_banned = models.BooleanField()
+
+
 class Post(models.Model):
     title = models.CharField(max_length=127)
     body = models.TextField()
