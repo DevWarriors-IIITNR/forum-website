@@ -57,6 +57,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# Disallow Regular login
+SOCIALACCOUNT_ONLY = True
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
