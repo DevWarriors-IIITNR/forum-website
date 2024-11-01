@@ -21,7 +21,7 @@ def newpost(request):
             if form.is_valid():
                 post = form.save(commit=False)
                 post.user = request.user
-                post.created_at = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
+                # post.created_at = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
                 post.save()
                 return redirect("/")
         else:
