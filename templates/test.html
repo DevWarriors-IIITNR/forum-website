@@ -20,75 +20,20 @@
       </form>
     </div>
   </nav>
-
-  <div class="card my-2" style="background-color:#f8f8f5; color:#151515;">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text text-wrap text-truncate" style="max-height: 3rem;">Lorem ipsum odor amet, consectetuer adipiscing elit. Lacinia mi scelerisque dictum eros eget ipsum. Sem mollis cras ligula faucibus fusce sed per. Potenti ut nisi scelerisque parturient enim. Iaculis aliquam rutrum elit parturient nec. Luctus justo fames tempor nullam mus aliquam netus conubia. Ultricies volutpat ex; aptent per consequat sodales. Sapien lobortis litora condimentum phasellus ad hac. Orci litora rutrum et cubilia; sociosqu est.</p>
-      <div class="d-flex p-2 justify-content-start align-items-center">
-        <div class="d-flex pr-5 flex-shrink-1 justify-content-start align-items-center">
-          <input type="radio" class="btn-check" name="options-outlined-1" id="success-outlined-1" autocomplete="off">
-          <label class="btn btn-outline-success" for="success-outlined-1"><i class="fa-solid fa-chevron-up"></i></label>
-          <div class="text-center flex-grow-1 px-3">384</div>
-          <input type="radio" class="btn-check" name="options-outlined-1" id="danger-outlined-1" autocomplete="off">
-          <label class="btn btn-outline-danger" for="danger-outlined-1"><i class="fa-solid fa-chevron-down"></i></label>
+  
+  {% for post in posts %}
+    <div class="card my-2" style="background-color:#f8f8f5; color:#151515;">
+      <div class="card-body">
+      <h5 class="card-title p-2 m-2">{{ post.title }}</h5>
+      <p class="card-text p-2 m-2 text-wrap text-truncate" style="max-height: 3rem;">{{ post.body }}</p>
+        <div class="d-flex p-2 m-2 justify-content-start align-items-center">
+          <div class="badge align-self-middle text-wrap text-start me-auto text-secondary">By @{{ post.user }}</div>
+          <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on {{ post.created_at }}</div>
         </div>
-        <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on 2024-10-29, 22:47</div>
-      </div>
 
-    </div>
-  </div>
-  <div class="card my-2">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text text-wrap text-truncate" style="max-height: 3rem; max-width: 120rem;">Lorem ipsum odor amet, consectetuer adipiscing elit. Lacinia mi scelerisque dictum eros eget ipsum. Sem mollis cras ligula faucibus fusce sed per. Potenti ut nisi scelerisque parturient enim. Iaculis aliquam rutrum elit parturient nec. Luctus justo fames tempor nullam mus aliquam netus conubia. Ultricies volutpat ex; aptent per consequat sodales. Sapien lobortis litora condimentum phasellus ad hac. Orci litora rutrum et cubilia; sociosqu est.</p>
-      <div class="d-flex p-2 justify-content-start align-items-center">
-        <div class="d-flex pr-5 flex-shrink-1 justify-content-start align-items-center">
-          <input type="radio" class="btn-check" name="options-outlined-2" id="success-outlined-2" autocomplete="off">
-          <label class="btn btn-outline-success" for="success-outlined-2"><i class="fa-solid fa-chevron-up"></i></label>
-          <div class="text-center flex-grow-1 px-3">0</div>
-          <input type="radio" class="btn-check" name="options-outlined-2" id="danger-outlined-2" autocomplete="off">
-          <label class="btn btn-outline-danger" for="danger-outlined-2"><i class="fa-solid fa-chevron-down"></i></label>
-        </div>
-        <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on 2024-10-29, 22:47</div>
       </div>
-
     </div>
-  </div>
-  <div class="card my-2">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text text-wrap text-truncate" style="max-height: 3rem; max-width: 120rem;">Lorem ipsum odor amet, consectetuer adipiscing elit. Lacinia mi scelerisque dictum eros eget ipsum. Sem mollis cras ligula faucibus fusce sed per. Potenti ut nisi scelerisque parturient enim. Iaculis aliquam rutrum elit parturient nec. Luctus justo fames tempor nullam mus aliquam netus conubia. Ultricies volutpat ex; aptent per consequat sodales. Sapien lobortis litora condimentum phasellus ad hac. Orci litora rutrum et cubilia; sociosqu est.</p>
-      <div class="d-flex p-2 justify-content-start align-items-center">
-        <div class="d-flex pr-5 flex-shrink-1 justify-content-start align-items-center">
-          <input type="radio" class="btn-check" name="options-outlined-3" id="success-outlined-3" autocomplete="off">
-          <label class="btn btn-outline-success" for="success-outlined-3"><i class="fa-solid fa-chevron-up"></i></label>
-          <div class="text-center flex-grow-1 px-3">0</div>
-          <input type="radio" class="btn-check" name="options-outlined-3" id="danger-outlined-3" autocomplete="off">
-          <label class="btn btn-outline-danger" for="danger-outlined-3"><i class="fa-solid fa-chevron-down"></i></label>
-        </div>
-        <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on 2024-10-29, 22:47</div>
-      </div>
-
-    </div>
-  </div>
-  <div class="card my-2">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text text-wrap text-truncate" style="max-height: 3rem; max-width: 120rem;">Lorem ipsum odor amet, consectetuer adipiscing elit. Lacinia mi scelerisque dictum eros eget ipsum. Sem mollis cras ligula faucibus fusce sed per. Potenti ut nisi scelerisque parturient enim. Iaculis aliquam rutrum elit parturient nec. Luctus justo fames tempor nullam mus aliquam netus conubia. Ultricies volutpat ex; aptent per consequat sodales. Sapien lobortis litora condimentum phasellus ad hac. Orci litora rutrum et cubilia; sociosqu est.</p>
-      <div class="d-flex p-2 justify-content-start align-items-center">
-        <div class="d-flex pr-5 flex-shrink-1 justify-content-start align-items-center">
-          <input type="radio" class="btn-check" name="options-outlined-4" id="success-outlined-4" autocomplete="off">
-          <label class="btn btn-outline-success" for="success-outlined-4"><i class="fa-solid fa-chevron-up"></i></label>
-          <div class="text-center flex-grow-1 px-3">0</div>
-          <input type="radio" class="btn-check" name="options-outlined-4" id="danger-outlined-4" autocomplete="off">
-          <label class="btn btn-outline-danger" for="danger-outlined-4"><i class="fa-solid fa-chevron-down"></i></label>
-        </div>
-        <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on 2024-10-29, 22:47</div>
-      </div>
-
-    </div>
-  </div>
+  {% endfor %}
   <div class="py-1"></div>
 </div>
 
