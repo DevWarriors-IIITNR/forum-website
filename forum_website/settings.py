@@ -33,6 +33,7 @@ SITE_ID = 3
 # Application definition
 
 INSTALLED_APPS = [
+    "Forum.apps.ForumConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
