@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container-fluid px-0 mx-0 row">
   <img class="img-fluid col-sm-7 px-0 mx-0" src="{% static 'images/backdrop.jpeg' %}"/>
-  <div class="col container-fluid d-flex flex-column justify-content-center align-items-center align-text-center p-5" style="background-color: #f27516;">
+  <div class="col container-fluid d-flex flex-column justify-content-center align-items-center align-text-center p-5" style="background-color: #d6a91a;">
     <h1 class="text-light align-middle">Join the forum today!</h1>
     <form action="{% provider_login_url 'google' %}" method="post">
       {% csrf_token %}
