@@ -7,10 +7,12 @@ from allauth.socialaccount.models import SocialAccount
 
 
 def home(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and not (request.user.profile.is_banned):
         posts = Post.objects.filter(is_deleted=False).order_by("-created_at")
         args = {"posts": posts}
         return render(request, "test.html", args)
+    elif request.user.is_authenticated and request.user.profile.is_banned:
+        return redirect(banned_view)
     return render(request, "index.html")
 
 
@@ -30,7 +32,7 @@ def about(request):
 
 
 def newpost(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and not (request.user.profile.is_banned):
         form = PostForm(request.POST)
         if request.method == "POST":
             if form.is_valid():
@@ -42,12 +44,19 @@ def newpost(request):
         else:
             form = PostForm()
         return render(request, "newpost.html", {"form": form})
+    elif request.user.is_authenticated and request.user.profile.is_banned:
+        return redirect(banned_view)
     else:
         return redirect(pleasesignin)
 
 
 def pleasesignin(request):
-    return render(request, "pleasesignin.html")
+    if not (request.user.is_authenticated):
+        return render(request, "pleasesignin.html")
+    elif request.user.is_authenticated and request.user.profile.is_banned:
+        return redirect(banned_view)
+    else:
+        return HttpResponseNotFound()
 
 
 def logout_view(request):
@@ -80,7 +89,7 @@ def viewpost(request, pk):
             "viewpost.html",
             {"form": form, "comments": comments, "post": Post.objects.get(pk=pk)},
         )
-    elif request.user.profile.is_banned:
+    elif request.user.is_authenticated and request.user.profile.is_banned:
         return redirect(banned_view)
     else:
         return redirect(pleasesignin)
@@ -108,4 +117,4 @@ def banned_view(request):
     if request.user.is_authenticated and request.user.profile.is_banned:
         return render(request, "youarebanned.html")
     else:
-        return HttpResponse(status=404)
+        return HttpResponseNotFound()
