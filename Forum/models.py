@@ -34,6 +34,7 @@ class Post(models.Model):
     title = models.CharField(max_length=127)
     body = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -44,6 +45,7 @@ class Comment(models.Model):
     body = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
