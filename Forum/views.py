@@ -7,7 +7,7 @@ from allauth.socialaccount.models import SocialAccount
 
 def home(request):
     if request.user.is_authenticated:
-        posts = Post.objects.all()
+        posts = Post.objects.order_by("-created_at")
         args = {"posts": posts}
         return render(request, "test.html", args)
     return render(request, "index.html")
@@ -47,14 +47,18 @@ def viewpost(request, pk):
     if request.user.is_authenticated:
         form = CommentForm(request.POST)
         post = Post.objects.get(pk=pk)
-        comments = Comment.objects.filter(post=post)
+        comments = Comment.objects.filter(post=post).order_by("-created_at")
         if request.method == "POST":
             if form.is_valid():
                 comment = form.save(commit=False)
                 comment.user = request.user
                 comment.post = Post.objects.get(pk=pk)
                 comment.save()
-                return redirect("/viewpost/" + str(pk))
+                return render(
+                    request,
+                    "partials/commentlist.html",
+                    {"comments": comments, "post": post},
+                )
         else:
             form = CommentForm()
         return render(

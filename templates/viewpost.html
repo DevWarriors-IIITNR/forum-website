@@ -19,25 +19,15 @@
 
 
 <div class="container-fluid mb-3">
-  <form method="POST" class="post-form">
+  <form hx-post="{% url 'viewpost' post.pk %}" hx-swap="innerHTML" hx-target="#commentList" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-default save btn-primary mt-1 mb-5">Submit</button>
   </form>
 </div>
-
-  {% for comment in comments %}
-    <div class="card m-2" style="background-color:#f8f8f5; color:#151515;">
-      <div class="card-body">
-      <p class="card-text p-2 m-2 text-wrap text-truncate" style="max-height: 3rem;">{{ comment.body }}</p>
-        <div class="d-flex p-2 m-2 justify-content-start align-items-center">
-        <div class="badge align-self-middle text-wrap text-start me-auto text-secondary">By @{{ comment.user }} <img src="{{ comment.user.profile.picture }}" class="rounded-circle" height="15" width="15"></div>
-          <div class="badge align-self-end text-wrap text-end ms-auto text-secondary">Created on {{ comment.created_at }}</div>
-        </div>
-
-      </div>
-    </div>
-  {% endfor %}
+<div id="commentList">
+  {% include 'partials/commentlist.html' %}
+</div>
 
 
 {% endblock content %}
