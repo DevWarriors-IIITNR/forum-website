@@ -7,10 +7,21 @@ from allauth.socialaccount.models import SocialAccount
 
 def home(request):
     if request.user.is_authenticated:
-        posts = Post.objects.order_by("-created_at")
+        posts = Post.objects.filter(is_deleted=False).order_by("-created_at")
         args = {"posts": posts}
         return render(request, "test.html", args)
     return render(request, "index.html")
+
+
+def delete_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.user.is_authenticated and (
+        post.user == request.user or request.user.is_staff
+    ):
+        post.is_deleted = True
+        post.save()
+        posts = Post.objects.filter(is_deleted=False).order_by("-created_at")
+        return render(request, "partials/postlist.html", {"posts": posts})
 
 
 def about(request):
