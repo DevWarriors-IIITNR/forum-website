@@ -1,7 +1,7 @@
 {% load static %}
 {% load socialaccount %}
 <!doctype html>
-<html lang="en">
+<html lang="en" style="height: 100%; overflow-y: auto;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +31,7 @@
       type="text/css"
     />
   </head>
-  <body>
+  <body class="d-flex flex-column" style="min-height: 100%;">
     <div class="container-fluid p-0" >
       <nav style="/*background-color: #f8f8f5; color: #151515;*/" class="navbar p-2 navbar-fixed-top navbar-expand-lg ">
         <div class="container-fluid ">
@@ -41,7 +41,7 @@
           </a>
           
           
-        </div>
+        </div> 
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -87,7 +87,7 @@
     </div>
     {% block content %}
     {% endblock content %}
-    <footer class="navbar container-fluid py-5" style="background-color: #217591; color: white;">
+    <footer class="navbar container-fluid py-5" style="background-color: #217591; color: white; margin-top: auto;">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">

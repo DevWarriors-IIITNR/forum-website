@@ -9,15 +9,12 @@
 <div class="container-fluid my-0" style="background-image: url('{% static "images/backdrop-forum2.png" %}');background-size: cover; background-color:#f1c6c8;">
   <div class="py-1"></div>
   <nav class="navbar mt-5 bg-body-tertiary" style="background-color: transparent;">
-    <div class="container-fluid" style="background-color: transparent;">
-      <div class="m-2">
+    <div class="container-fluid d-flex align-content-center justify-content-between flex-row" style="background-color: transparent;">
+      <div class="d-flex align-items-center m-2">
         <a class="navbar-brand">Posts</a>
         <a class="btn btn-primary" href="/newpost" ><i class="fa fa-plus"></i> New</a>
       </div>
-      <form class="d-flex m-2" role="search">
-        <input class="form-control me-2" id="forumsearch" type="search" placeholder="Search for posts.." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <input class="form-control m-2" hx-post="{% url 'search' %}" hx-target="#postList" hx-trigger="keyup changed delay:500ms" id="forumsearch" type="search" placeholder="Search for posts.." aria-label="Search" name="search">
     </div>
   </nav>
   

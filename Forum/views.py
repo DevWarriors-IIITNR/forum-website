@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.db.models import Q
 from django.http.response import HttpResponseNotFound
 from django.shortcuts import HttpResponse, redirect, render
 from django.contrib.auth import logout
@@ -120,3 +121,14 @@ def banned_view(request):
         return render(request, "youarebanned.html")
     else:
         return redirect("/")
+
+
+@login_required
+@require_http_methods(["POST"])
+def search_posts(request):
+    if not request.user.profile.is_banned:
+        search_term = request.POST.get("search")
+        results = Post.objects.filter(
+            Q(title__icontains=search_term) | Q(body__icontains=search_term)
+        )
+        return render(request, "partials/postlist.html", {"posts": results})
