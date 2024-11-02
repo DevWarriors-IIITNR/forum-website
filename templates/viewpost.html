@@ -19,7 +19,7 @@
 
 
 <div class="container-fluid mb-3">
-  <form hx-post="{% url 'viewpost' post.pk %}" hx-swap="innerHTML" hx-target="#commentList" class="post-form">
+  <form hx-post="{% url 'viewpost' post.pk %}" hx-swap="innerHTML" hx-target="#commentList" hx-on::before-request="document.querySelector('#commentBox').value=''" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-default save btn-primary mt-1 mb-5">Submit</button>

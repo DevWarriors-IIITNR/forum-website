@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.http.response import HttpResponseNotFound
 from django.shortcuts import HttpResponse, redirect, render
 from django.contrib.auth import logout
 from .models import Post, Comment, PostForm, CommentForm
@@ -37,7 +38,7 @@ def newpost(request):
                 post.user = request.user
                 # post.created_at = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
                 post.save()
-                return redirect("/")
+                return redirect("/viewpost/" + str(post.pk))
         else:
             form = PostForm()
         return render(request, "newpost.html", {"form": form})
@@ -55,10 +56,12 @@ def logout_view(request):
 
 
 def viewpost(request, pk):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and not (request.user.profile.is_banned):
         form = CommentForm(request.POST)
         post = Post.objects.get(pk=pk)
-        comments = Comment.objects.filter(post=post).order_by("-created_at")
+        comments = Comment.objects.filter(post=post, is_deleted=False).order_by(
+            "-created_at"
+        )
         if request.method == "POST":
             if form.is_valid():
                 comment = form.save(commit=False)
@@ -77,5 +80,32 @@ def viewpost(request, pk):
             "viewpost.html",
             {"form": form, "comments": comments, "post": Post.objects.get(pk=pk)},
         )
+    elif request.user.profile.is_banned:
+        return redirect(banned_view)
     else:
         return redirect(pleasesignin)
+
+
+def delete_comment(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    if request.user.is_authenticated and (
+        comment.user == request.user or request.user.is_staff
+    ):
+        comment.is_deleted = True
+        comment.save()
+        comments = Comment.objects.filter(is_deleted=False, post=comment.post).order_by(
+            "-created_at"
+        )
+        print(comments)
+        return render(
+            request,
+            "partials/commentlist.html",
+            {"comments": comments},
+        )
+
+
+def banned_view(request):
+    if request.user.is_authenticated and request.user.profile.is_banned:
+        return render(request, "youarebanned.html")
+    else:
+        return HttpResponse(status=404)

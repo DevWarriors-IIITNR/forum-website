@@ -94,6 +94,8 @@ class CommentForm(ModelForm):
                     "cols": "auto",
                     "class": "mb-3 form-control",
                     "placeholder": "Your comment here...",
+                    "hx-swap-oob": "true",
+                    "id": "commentBox",
                 }
             )
         }
