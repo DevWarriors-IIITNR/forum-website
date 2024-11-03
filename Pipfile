@@ -8,6 +8,7 @@ django = "*"
 django-allauth = {extras = ["socialaccount"], version = "*"}
 psycopg2-binary = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 

@@ -31,7 +31,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 # WARNING: set it to 1 or 2 or whatever as per configs
-# SITE_ID = 4
+SITE_ID = 4
 
 # Application definition
 
@@ -74,6 +74,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "forum_website.urls"
