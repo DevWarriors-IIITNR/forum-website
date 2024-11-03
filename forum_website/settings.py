@@ -26,12 +26,13 @@ SECRET_KEY = os.environ.get(
     "django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87",
 )
 
-DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
+# DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
+DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "animesh24100.pythoneverywhere.com"]
 
 # WARNING: set it to 1 or 2 or whatever as per configs
-SITE_ID = 4
+SITE_ID = 2
 
 # Application definition
 
