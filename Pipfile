@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 django-allauth = {extras = ["socialaccount"], version = "*"}
 psycopg2-binary = "*"
+python-dotenv = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
