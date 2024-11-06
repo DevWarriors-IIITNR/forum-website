@@ -129,6 +129,7 @@ def search_posts(request):
     if not request.user.profile.is_banned:
         search_term = request.POST.get("search")
         results = Post.objects.filter(
-            Q(title__icontains=search_term) | Q(body__icontains=search_term)
+            (Q(title__icontains=search_term) | Q(body__icontains=search_term))
+            & Q(is_deleted=False)
         )
         return render(request, "partials/postlist.html", {"posts": results})
